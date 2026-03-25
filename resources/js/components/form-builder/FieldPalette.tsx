@@ -1,4 +1,6 @@
+import { useDraggable } from '@dnd-kit/core';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { FormField } from '@/types';
 import {
     Type,
     Mail,
@@ -8,8 +10,6 @@ import {
     FileText,
     Circle,
 } from 'lucide-react';
-import type { FormField } from '@/types';
-import { useDraggable } from '@dnd-kit/core';
 
 const fieldTypes: Array<{
     type: FormField['type'];
