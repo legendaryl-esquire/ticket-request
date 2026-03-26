@@ -8,6 +8,7 @@ import { useFormStore } from '@/store/formStore';
 import { SortableField } from './SortableField';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Button } from '../ui/button';
 
 export function FormCanvas() {
     const { schema, updateSchema, currentStep } = useFormStore();
@@ -18,7 +19,10 @@ export function FormCanvas() {
         schema.isMultiStep && schema.steps
             ? schema.steps[currentStep]?.fields || []
             : schema.fields;
-    console.log(currentFields);
+
+    const handleCreateForm = () => {
+        console.log(currentFields);
+    };
 
     return (
         <div className="flex-1 p-4">
@@ -47,7 +51,7 @@ export function FormCanvas() {
                         />
                     </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="space-y-2">
                     <div
                         ref={setNodeRef}
                         className="min-h-100 space-y-4 rounded-lg border-2 border-dashed border-muted-foreground/25 p-4"
@@ -78,6 +82,7 @@ export function FormCanvas() {
                             </>
                         )}
                     </div>
+                    <Button onClick={handleCreateForm}>Create</Button>
                 </CardContent>
             </Card>
         </div>
