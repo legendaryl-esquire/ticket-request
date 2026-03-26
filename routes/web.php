@@ -22,7 +22,7 @@ Route::prefix('admin')->group(function () {
 
     require __DIR__ . '/settings.php';
 });
-
+   
 Route::middleware('guest')->group(function () {
     require __DIR__ . '/home.php';
 });
