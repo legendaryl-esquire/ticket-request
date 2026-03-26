@@ -13,9 +13,11 @@ Route::prefix('admin')->group(function () {
             ]);
         })->name('home');
     });
-    
+    Route::middleware(['auth', 'verified'])->group(function () {
+    Route::inertia('dashboard', 'dashboard')->name('dashboard');
+});    
     Route::middleware('guest')->get('/login', function () {
-        return redirect('/admin');
+        return redirect('/admin', );
     })->name('login');
 
     require __DIR__ . '/settings.php';
