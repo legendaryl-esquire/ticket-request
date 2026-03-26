@@ -1,16 +1,17 @@
 import { useFormStore } from '@/store/formStore';
-import {
-    DndContext,
+import type {
     DragEndEvent,
     DragOverEvent,
-    DragOverlay,
     DragStartEvent,
-    PointerSensor,
+} from '@dnd-kit/core';
+import {
+    DndContext,
+    DragOverlay,
     useSensor,
     useSensors,
+    PointerSensor,
 } from '@dnd-kit/core';
 import { useState } from 'react';
-
 import { FieldEditor } from '@/components/form-builder/FieldEditor';
 import { FieldPalette } from '@/components/form-builder/FieldPalette';
 import { FormCanvas } from '@/components/form-builder/FormCanvas';
@@ -118,7 +119,6 @@ export default function Dashboard() {
                                 <FieldPalette />
                                 <FormTemplates />
                                 <PremiumTemplates />
-                                {/* <MultiStepControls /> */}
                             </div>
                             <FormCanvas />
                             <div className="flex h-fit gap-4">

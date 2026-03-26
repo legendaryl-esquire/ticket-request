@@ -54,13 +54,7 @@ export function FormCanvas() {
                 <CardContent className="space-y-2">
                     <div
                         ref={setNodeRef}
-                        className="space-y-4 rounded-lg border-2 border-dashed border-muted-foreground/25 p-4"
-                        style={{
-                            minHeight:
-                                currentFields.length === 0
-                                    ? '400px'
-                                    : `${Math.max(400, currentFields.length * 150 + 300)}px`,
-                        }}
+                        className="min-h-100 space-y-4 rounded-lg border-2 border-dashed border-muted-foreground/25 p-4"
                     >
                         {currentFields.length === 0 ? (
                             <div className="py-12 text-center text-muted-foreground">
@@ -72,17 +66,20 @@ export function FormCanvas() {
                                 </p>
                             </div>
                         ) : (
-                            <SortableContext
-                                items={currentFields.map((f) => f.id)}
-                                strategy={verticalListSortingStrategy}
-                            >
-                                {currentFields.map((field) => (
-                                    <SortableField
-                                        key={field.id}
-                                        field={field}
-                                    />
-                                ))}
-                            </SortableContext>
+                            <>
+                                <SortableContext
+                                    items={currentFields.map((f) => f.id)}
+                                    strategy={verticalListSortingStrategy}
+                                >
+                                    {currentFields.map((field) => (
+                                        <SortableField
+                                            key={field.id}
+                                            field={field}
+                                        />
+                                    ))}
+                                </SortableContext>
+                                <div className="h-36" />
+                            </>
                         )}
                     </div>
                     <Button onClick={handleCreateForm}>Create</Button>
